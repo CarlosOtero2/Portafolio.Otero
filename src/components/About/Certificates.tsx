@@ -2,13 +2,13 @@ const certificatesData = [
   {
     title: "Certificado SEO",
     institution: "capacitateparaelempleo.org",
-    pdfUrl: "src/pdfs/CERTIFICADO-SEO-Carlos.Otero.pdf",
+    pdfUrl: "public/pdfs/CERTIFICADO-SEO-Carlos.Otero.pdf",
     link: "https://capacitateparaelempleo.org/"
   },
   {
     title: "Plan de negocios",
     institution: "INADEH",
-    pdfUrl: "src/pdfs/Certificado del Inadeh.pdf",
+    pdfUrl: "public/pdfs/Certificado del Inadeh.pdf",
     link: "https://digital.inadeh.edu.pa/preinscrip/"
   }
 ];
