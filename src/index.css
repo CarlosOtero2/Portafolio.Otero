@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Righteous', sans-serif;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply block py-2 text-gray-800 hover:text-blue-600 transition-colors duration-200;
+  }
+
+  .hero-card {
+    @apply bg-white/20 backdrop-blur-sm p-6 rounded-lg shadow-lg 
+           hover:transform hover:scale-105 transition-all duration-300
+           border border-white/30;
+  }
+
+  .btn-primary {
+    @apply bg-white text-blue-600 px-8 py-3 rounded-full
+           hover:bg-blue-50 transition-all duration-300
+           shadow-lg hover:shadow-xl;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-white px-8 py-3 rounded-full
+           border-2 border-white hover:bg-white/10
+           transition-all duration-300;
+  }
+}
