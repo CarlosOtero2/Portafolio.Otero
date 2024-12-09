@@ -6,4 +6,3 @@
       { "src": "package.json", "use": "@vercel/static-build" }
     ]
   }
-  

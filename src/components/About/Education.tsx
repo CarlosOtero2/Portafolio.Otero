@@ -3,14 +3,14 @@ const educationData = [
     title: "Lic. en Gestión de Tecnología de la Información",
     institution: "Universidad Autónoma de Chiriquí (UNACHI)",
     period: "2024 - Actualmente",
-    imageUrl: "public/unachi-logo.jpg",
+    imageUrl: "/img/unachi-logo.jpg",
     link: "https://www.unachi.ac.pa/"
   },
   {
     title: "Técnico en Informática",
     institution: "Instituto Técnico Superior Cultural y Turismo (CSC&T)",
     period: "2023 - 2024",
-    imageUrl: "public/Instituto técnico superior cultural y turismo (csc&t).png",
+    imageUrl: "/img/Instituto técnico superior cultural y turismo (csc&t).png",
     link: "https://virtualc.fundacioninstitutospanama.com/"
   }
 ];

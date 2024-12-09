@@ -6,7 +6,7 @@ const AboutHero = () => {
           <div className="w-full md:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="public\Carlos-Otero-Desarrollador-Sotware.jpg" 
+                src="/img/Carlos-Otero-Desarrollador-Sotware.jpg" 
                 alt="Carlos Otero"
                 className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
               />
