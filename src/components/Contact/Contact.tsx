@@ -22,7 +22,7 @@ const Contact = () => {
     try {
       await emailjs.send(
         'service_t15prnv', // EmailJS service ID
-        'template_r6suls7', //  EmailJS template ID
+        'template_r6suls7', // EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -30,7 +30,7 @@ const Contact = () => {
           to_name: 'Carlos Otero',
           to_email: 'carlosivanoteroespinosa@gmail.com'
         },
-        'E4z71gElT5Yv7E0fU' //  public key
+        'E4z71gElT5Yv7E0fU' // public key
       );
 
       toast.success('¡Mensaje enviado con éxito!');
@@ -51,14 +51,21 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gradient-to-b from-background to-secondary/10 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+      </div>
+
       <Toaster position="top-right" />
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-16"
+          className="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white drop-shadow-lg relative z-10 bg-white bg-opacity-70 p-4 rounded-md"
         >
           Contacto
         </motion.h2>

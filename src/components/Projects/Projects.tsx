@@ -7,24 +7,24 @@ const projectsData = [
     description: "Plataforma de comercio electrónico con carrito de compras y pasarela de pagos.",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
     technologies: ["React", "Node.js", "MongoDB"],
-    githubUrl: "#",
-    liveUrl: "#"
+    githubUrl: "https://github.com/usuario/ecommerce-platform",  // URL de GitHub
+    liveUrl: "https://ecommerce-platform.com"  // URL en vivo del proyecto
   },
   {
     title: "Task Management App",
     description: "Aplicación de gestión de tareas con características colaborativas.",
     image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?w=800&q=80",
     technologies: ["Vue.js", "Express", "PostgreSQL"],
-    githubUrl: "#",
-    liveUrl: "#"
+    githubUrl: "https://github.com/usuario/task-management-app",  // URL de GitHub
+    liveUrl: "https://task-management-app.com"  // URL en vivo del proyecto
   },
   {
     title: "Weather Dashboard",
     description: "Dashboard del clima con datos en tiempo real y pronósticos.",
     image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
     technologies: ["React", "TypeScript", "API Integration"],
-    githubUrl: "#",
-    liveUrl: "#"
+    githubUrl: "https://github.com/usuario/weather-dashboard",  // URL de GitHub
+    liveUrl: "https://weather-dashboard.com"  // URL en vivo del proyecto
   }
 ];
 

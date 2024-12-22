@@ -64,7 +64,7 @@ const Footer = () => {
                 <Linkedin size={24} />
               </a>
               <a
-                href=""
+                href="https://twitter.com/tu_usuario"  // Reemplaza con tu usuario de Twitter
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"

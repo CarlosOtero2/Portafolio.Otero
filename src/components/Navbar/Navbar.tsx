@@ -33,7 +33,7 @@ const Navbar = () => {
             <li><a href="#" className="nav-link"><strong>Inicio</strong></a></li>
             <li><a href="#about" className="nav-link"><strong>Sobre mí</strong></a></li>
             <li><a href="#projects" className="nav-link"><strong>Proyectos</strong></a></li>
-            <li><a href="#about" className="nav-link"><strong>Habilidades</strong></a></li>
+            <li><a href="#skills" className="nav-link"><strong>Habilidades</strong></a></li>
             <li><a href="#contact" className="nav-link"><strong>Contacto</strong></a></li>
           </ul>
         </div>

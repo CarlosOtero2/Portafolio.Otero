@@ -6,18 +6,18 @@ const testimonials = [
   {
     text: "El trabajo de Carlos es excepcional. Mi sitio web nunca había sido tan rápido y atractivo.",
     author: "Ana Rodríguez",
-    position: "-"
+    position: "--",
   },
   {
     text: "Gracias a su consultoría, mi negocio creció exponencialmente. ¡Altamente recomendado!",
     author: "Juan Pérez",
-    position: "-"
+    position: "--",
   },
   {
     text: "Profesional, dedicado y con una visión increíble. Trabajar con Carlos fue un placer.",
     author: "María González",
-    position: "-"
-  }
+    position: "--",
+  },
 ];
 
 const Testimonials = () => {
@@ -32,13 +32,19 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600">
-      <div className="container mx-auto px-4">
-        <motion.h2
+    <section className="py-20 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.h2 
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center text-white mb-16"
+          animate={{ opacity: 1, y: 0 }}
+          className="text-3xl font-bold text-center mb-12 text-white drop-shadow-lg"
         >
           Lo que dicen mis clientes
         </motion.h2>
@@ -68,12 +74,16 @@ const Testimonials = () => {
             <button
               onClick={prev}
               className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+              aria-label="Anterior"
+              title="Anterior"
             >
               <ChevronLeft className="text-white" size={24} />
             </button>
             <button
               onClick={next}
               className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+              aria-label="Siguiente"
+              title="Siguiente"
             >
               <ChevronRight className="text-white" size={24} />
             </button>

@@ -8,6 +8,8 @@ export default {
       },
       animation: {
         'gradient': 'gradient 15s ease infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'blob': 'blob 7s infinite',
       },
       keyframes: {
         gradient: {

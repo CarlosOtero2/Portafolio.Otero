@@ -1,79 +1,130 @@
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython } from 'react-icons/fa';
-import { SiVite, SiCplusplus, SiMysql, SiPostgresql, SiMariadb } from 'react-icons/si';
+import { motion } from "framer-motion"
+import { Code2, Layout, Database, HashIcon as Html, CodepenIcon as Css, FileJson, Server, GitGraphIcon as Git, CodepenIcon as NodeJs, Terminal } from 'lucide-react'
 
-const Hero = () => {
-  const techData = [
+export default function Hero() {
+  const skillCategories = [
     {
-      title: 'Front-end',
-      icons: [
-        { Icon: FaHtml5, label: 'HTML' },
-        { Icon: FaCss3Alt, label: 'CSS' },
-        { Icon: FaJs, label: 'JavaScript' },
-        { Icon: FaReact, label: 'React' },
-        { Icon: SiVite, label: 'Vite' },
-      ],
+      title: "Frontend",
+      icon: <Layout className="w-6 h-6" />,
+      skills: [
+        { name: "HTML5", icon: <Html className="w-5 h-5" /> },
+        { name: "CSS3", icon: <Css className="w-5 h-5" /> },
+        { name: "JavaScript", icon: <FileJson className="w-5 h-5" /> },
+      ]
     },
     {
-      title: 'Back-end',
-      icons: [
-        { Icon: FaPython, label: 'Python' },
-        { Icon: SiCplusplus, label: 'C++' },
-      ],
+      title: "Backend",
+      icon: <Server className="w-6 h-6" />,
+      skills: [
+        { name: "Node.js", icon: <NodeJs className="w-5 h-5" /> },
+        { name: "API REST", icon: <Code2 className="w-5 h-5" /> },
+        { name: "Git", icon: <Git className="w-5 h-5" /> },
+      ]
     },
     {
-      title: 'Bases de Datos',
-      icons: [
-        { Icon: SiMysql, label: 'MySQL' },
-        { Icon: SiPostgresql, label: 'PostgreSQL' },
-        { Icon: SiMariadb, label: 'MariaDB' },
-      ],
-    },
-  ];
+      title: "Bases de Datos",
+      icon: <Database className="w-6 h-6" />,
+      skills: [
+        { name: "SQL", icon: <Terminal className="w-5 h-5" /> },
+        { name: "MongoDB", icon: <Database className="w-5 h-5" /> },
+      ]
+    }
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  }
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 pt-20">
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-5xl md:text-6xl font-black text-center text-white mb-4 drop-shadow-lg">
-          Carlos Otero
-        </h1>
-        <p className="text-2xl md:text-3xl font-bold text-center text-white/90 mb-6">
-          Desarrollador de Software
-        </p>
-        <p className="text-xl text-center text-white/80 mb-12 max-w-2xl mx-auto">
-          ¡Hola! Aquí encontrarás soluciones tecnológicas más frescas que un raspao en verano.
-        </p>
+    <section className="min-h-screen bg-gradient-to-b from-background to-secondary/10 px-4 py-20 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+      </div>
 
-        {/* Nueva sección con las tecnologías */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-6xl mx-auto px-4">
-          {techData.map((category, index) => (
-            <div
-              key={index}
-              className="bg-white/10 rounded-lg p-6 text-center shadow-lg backdrop-blur-md"
+      <div className="max-w-6xl mx-auto relative">
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-20"
+        >
+          <br />
+
+          <h1 className="text-4xl md:text-6xl font-semibold text-muted-foreground mb-2">
+            Hola, bienvenidos a mi portafolio
+          </h1>
+
+          <br />
+
+          <h2 className="text-2xl md:text-4xl font-semibold text-muted-foreground mb-2">
+            Soy, Carlos I.Otero E.
+          </h2>
+
+          <br />
+
+          <h3 className="text-2xl text-muted-foreground/80">
+            Técnico en Ingeniería en Sistemas Informáticos
+          </h3>
+        </motion.div>
+
+        {/* Skills Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {skillCategories.map((category, index) => (
+            <motion.div
+              key={category.title}
+              variants={itemVariants}
+              className="bg-card/50 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-2xl font-bold mb-4 text-white">{category.title}</h3>
-              <div className="flex justify-center gap-4 flex-wrap">
-                {category.icons.map(({ Icon, label }, i) => (
-                  <div key={i} className="text-white">
-                    <Icon size={40} className="mx-auto mb-2" />
-                    <p className="text-sm">{label}</p>
-                  </div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary">
+                  {category.icon}
+                </div>
+                <h4 className="text-xl font-semibold">{category.title}</h4>
+              </div>
+              
+              <div className="space-y-4">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2 + skillIndex * 0.1 }}
+                    className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    <div className="p-1.5 rounded-md bg-muted">
+                      {skill.icon}
+                    </div>
+                    <span>{skill.name}</span>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        <div className="flex justify-center gap-6 flex-wrap">
-          <a href="#projects" className="btn-primary">
-            Ver Proyectos
-          </a>
-          <a href="#contact" className="btn-secondary">
-            Contactar
-          </a>
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
-};
-
-export default Hero;
+  )
+}

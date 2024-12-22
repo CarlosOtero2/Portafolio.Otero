@@ -1,64 +1,105 @@
+import { motion } from "framer-motion"
+
 const educationData = [
   {
     title: "Lic. en Gestión de Tecnología de la Información",
     institution: "Universidad Autónoma de Chiriquí (UNACHI)",
     period: "2024 - Actualmente",
-    imageUrl: "/unachi-logo.jpg",
+    imageUrl: "./public/img/unachi-logo.jpg",
     link: "https://www.unachi.ac.pa/"
   },
   {
     title: "Técnico en Informática",
     institution: "Instituto Técnico Superior Cultural y Turismo (CSC&T)",
     period: "2023 - 2024",
-    imageUrl: "/Instituto técnico superior cultural y turismo (csc&t).png",
+    imageUrl: "./public/img/Instituto técnico superior cultural y turismo (csc&t).png",
     link: "https://virtualc.fundacioninstitutospanama.com/"
   }
-];
+]
 
-const Education = () => {
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+}
+
+export default function Education() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-          Mis Estudios
-        </h2>
-        <div className="max-w-4xl mx-auto space-y-8">
+    <section className="py-16 relative overflow-hidden bg-gradient-to-b from-background to-secondary/10">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+      </div>
+
+      <div className="container mx-auto px-4 relative">
+      <motion.h2 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white drop-shadow-lg"
+       >
+      Mis estudios
+      </motion.h2>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-4xl mx-auto space-y-8"
+        >
           {educationData.map((item, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
+              variants={itemVariants}
+              className="flex flex-col md:flex-row items-center gap-8 p-6 rounded-xl bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300 hover:shadow-lg"
             >
-              <div className="md:w-2/3">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
+              <div className="md:w-2/3 space-y-2">
+                <h3 className="text-xl font-bold text-foreground">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 font-semibold mb-1">
+                <p className="font-semibold text-muted-foreground">
                   {item.institution}
                 </p>
-                <p className="text-gray-500">
+                <p className="text-muted-foreground/80">
                   {item.period}
                 </p>
               </div>
               <div className="md:w-1/3">
-                <a 
+                <motion.a 
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block hover:opacity-80 transition-opacity duration-300"
+                  className="block overflow-hidden rounded-lg"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <img
-                    src={item.imageUrl}
-                    alt={item.institution}
-                    className="w-full h-auto rounded-lg"
-                  />
-                </a>
+                  <div className="relative h-40 w-full">
+                    <img
+                      src={item.imageUrl}
+                      alt={item.institution}
+                      className="object-cover"
+                    />
+                  </div>
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Education;
